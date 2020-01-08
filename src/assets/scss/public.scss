@@ -1,0 +1,56 @@
+// 全局公共css， pub_前缀开头
+
+// 清除浮动
+.pub-fix {
+    zoom: 1;
+}
+
+.pub-fix::after {
+    clear: both;
+    display: block;
+    height: 0;
+    content: "";
+}
+
+//版心
+.pub-center {
+    min-width: 960px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// 文本 居左，居中， 居右
+.pub-t-le {
+    text-align: left
+}
+
+.pub-t-cen {
+    text-align: center
+}
+
+.pub-t-ri {
+    text-align: right
+}
+
+//色调
+.pub-red {
+    color: red;
+}
+
+.mr-78 {
+    margin-right: 78px;
+}
+
+// 主色调
+$main-color: #254CCA;
+
+
+.pub-fl {
+    float: left;
+}
+
+.pub-fr {
+    float: right;
+}
+
