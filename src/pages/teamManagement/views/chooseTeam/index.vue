@@ -1,5 +1,5 @@
 <template>
     <div>
-        选择预约大厅
+        选择队伍
     </div>
 </template>

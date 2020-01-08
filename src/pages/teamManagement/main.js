@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from './store'
 import {
   Radio,
   Button,
@@ -74,5 +75,6 @@ router.afterEach((to,from,next) => {
 })
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

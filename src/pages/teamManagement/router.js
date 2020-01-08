@@ -5,7 +5,7 @@ import {
     setCookie
 } from '../../utils/utils.js'
 // 选择预约大厅
-const chooseHall = () => import('./views/chooseHall/index.vue');
+const chooseTeam = () => import('./views/chooseTeam/index.vue');
 Vue.use(Router)
 
 const router = new Router({
@@ -13,17 +13,17 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [{
             path: '/',
-            redirect: '/chooseHall',
+            redirect: '/chooseTeam',
             meta: {
                 requireAuth: false, // 添加该字段，表示进入这个路由是需要登录的
             },
         },
         {
-            path: '/chooseHall',
-            name: 'chooseHall',
-            component: chooseHall,
+            path: '/chooseTeam',
+            name: 'chooseTeam',
+            component: chooseTeam,
             meta: {
-                title: '选择预约大厅', // 页面标题
+                title: '选择队伍', // 页面标题
                 requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
             }
         } 
