@@ -1,24 +1,24 @@
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-      ? '/ApprAppointment/'
+      ? '/teamManagement/'
       : '/',
   // 将构建好的文件输出到哪里
-  outputDir: 'ApprAppointment',
+  outputDir: 'teamManagement',
   pages: {
-    appointment: {
+    teamManagement: {
           // page 的入口
-          entry: 'src/pages/appointment/main.js',
+          entry: 'src/pages/teamManagement/main.js',
           // 模板来源
-          template: 'src/pages/appointment/tpl.html',
+          template: 'src/pages/teamManagement/tpl.html',
           // 在 dist/apply.html 的输出
-          filename: 'appointment.html',
+          filename: 'teamManagement.html',
           // 当使用 title 选项时，
           // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
           title: '我要预约',
           // 在这个页面中包含的块，默认情况下会包含
           // 提取出来的通用 chunk 和 vendor chunk。
-          chunks: ['chunk-vendors', 'chunk-common', 'appointment']
+          chunks: ['chunk-vendors', 'chunk-common', 'teamManagement']
       },
       entering: {
           entry: 'src/pages/entering/main.js',

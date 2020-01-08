@@ -4,7 +4,7 @@
 
 
 <script>
-import { interOutnetConfig } from "../../utils/appointment.url.js";
+import { interOutnetConfig } from "../../utils/teamManagement.url.js";
 import { Base64 } from "js-base64";
 export default {
   name: "entering",
