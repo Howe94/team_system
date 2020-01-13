@@ -37,8 +37,8 @@ module.exports = {
               ws: false,
               changeOrigin: true
           },
-          '/ApprReserveInterface': {
-              target: 'http://192.168.0.152:8888',
+          '/TeamSystem': {
+              target: 'http://127.0.0.1:3000',
               ws: true,
               changeOrigin: true
           }

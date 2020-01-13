@@ -32,6 +32,9 @@ import {
   DropdownMenu,
   DropdownItem,
   Cascader,
+  Menu,
+  MenuItem,
+  Card
 } from 'element-ui'
 import '@/style/lib/theme-chalk/index.css'
 import "../../assets/scss/reset.scss"
@@ -68,7 +71,10 @@ Vue.use(Tag);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
-Vue.use(Cascader)
+Vue.use(Cascader);
+Vue.use(Menu);
+Vue.use(MenuItem);
+Vue.use(Card);
 Vue.prototype.$message = Message;
 router.afterEach((to,from,next) => {
   window.scrollTo(0,0);
