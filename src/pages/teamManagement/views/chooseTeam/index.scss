@@ -9,7 +9,8 @@
             margin: 10px 23px;
             // box-shadow: 0px 0 19px 0px rgba(145, 181, 226, 0.52);
             cursor: pointer;
-            &:nth-of-type(1) {
+
+            &:nth-of-type(4n+1) {
                 margin-left: 0px;
             }
 
@@ -20,6 +21,7 @@
             .el-card .el-card__body {
                 margin: 10px;
                 border-bottom: 1px solid #d2c1c1;
+
                 h3 {
                     font-size: 18px;
                     font-weight: 800;
@@ -30,13 +32,15 @@
                 p {
                     font-size: 16px;
                     margin: 15px auto;
-                    &:nth-of-type(2){
-                        span{
+
+                    &:nth-of-type(2) {
+                        span {
                             font-weight: 600;
                             margin: 0px;
                         }
                     }
-                    span{
+
+                    span {
                         margin: 0px;
                     }
                 }
@@ -52,9 +56,25 @@
                         float: right;
                         // margin: 10px;
                     }
-
                 }
+            }
 
+            &:nth-of-type(12) {
+                text-align: center;
+                background: #ffffff;
+                font-size: 25px;
+                border-radius: 4px;
+                span {
+                    display: block;
+                    width: 265px;
+                    height: 138px;
+                    color: #959596;
+                    line-height: 138px;
+                    border-radius: 4px;
+                }
+            }
+            :hover{
+                background: rgb(111, 177, 240);
             }
         }
     }

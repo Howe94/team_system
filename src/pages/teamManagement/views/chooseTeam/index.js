@@ -14,7 +14,7 @@ export default {
             getTeamProInfo({
                 university: "广东金融学院"
             }, 'get').then(res => {
-                this.teamList = res.data;
+                this.teamList = res.data.slice(0,11)
             })
         },
         getTeamInfo(item) {
@@ -27,6 +27,9 @@ export default {
             // }, 'put').then(res => {
             //     console.log(res)
             // })
+        },
+        onloadMore(){
+            console.log("加载更多")
         }
     },
     created() {
