@@ -1,12 +1,20 @@
 import {
     getTeamProInfo,
-    changeTeamSeeNum
+    changeTeamSeeNum,
+    getUniversity
 } from '../../../../utils/teamManagement.url.js' // 引入接口
 export default {
     components: {},
     data() {
         return {
-            teamList: []
+            teamList: [],
+            formdata:{
+                university:"",//按照学院搜索
+                pro_type:"",//按照类型搜索
+                searchKey:""//搜索关键字
+            },
+            universityList:[],//学院列表
+            pro_typeList:[]//类型列表
         }
     },
     methods: {
@@ -28,11 +36,22 @@ export default {
             //     console.log(res)
             // })
         },
+        _getUniversity(){
+            getUniversity({
+
+            },"get").then(res =>{
+                this.universityList = res.data;
+            })
+        },
         onloadMore(){
             console.log("加载更多")
+        },
+        submitForm(){
+            
         }
     },
     created() {
+        this._getUniversity();
         this._getTeamProInfo()
     }
 }

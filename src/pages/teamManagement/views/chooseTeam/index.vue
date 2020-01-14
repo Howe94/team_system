@@ -1,6 +1,50 @@
 <template>
   <div class="container">
-    <div class="search-box"></div>
+    <div class="search-box">
+      <el-form ref="formdata" :model="formdata">
+        <el-row>
+          <el-col :span="7">
+            <el-form-item label="按学院查找">
+              <el-select v-model="formdata.university" placeholder="请选择查找的学院">
+                <el-option
+                  v-for="(item, key) in universityList"
+                  :key="key"
+                  :label="item.university"
+                  :value="item.id"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label="按类型查找">
+              <el-select v-model="formdata.pro_type" placeholder="请选择查找的类型">
+                <el-option
+                  v-for="(item, key) in pro_typeList"
+                  :key="key"
+                  :label="item.val"
+                  :value="item.type"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item>
+              <el-input v-model="formdata.searchKey" placeholder="请选择查找的关键字"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="2">
+            <el-form-item>
+              <el-button type="primary" @click="submitForm('formdata')">搜索</el-button>
+            </el-form-item>
+          </el-col>
+          <el-col :span="2">
+            <el-form-item>
+              <el-button @click="resetForm('formdata')">重置</el-button>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+    </div>
     <div class="team-list">
       <el-row>
         <el-col v-for="(item, index) in teamList" :key="index">
