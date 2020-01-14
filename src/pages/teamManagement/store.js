@@ -5,9 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        login:''
+        proId:''
     },
     mutations: {
+        getTeamInfo(state,proId){
+            state.proId = proId;
+        }
     },
     actions: {
 

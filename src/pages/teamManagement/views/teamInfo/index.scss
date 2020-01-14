@@ -1,0 +1,60 @@
+.container{
+    width: 1200px;
+    margin: 5px auto;
+    .proInfoBox, .teamInfoBox{
+        margin:25px 20px;
+        // height: 700px;
+        display: inline-block;
+        vertical-align: top;
+        h3{
+            font-size: 18px;
+            font-weight: 600;
+            margin: 20px 0px;
+        }
+        span{
+            font-size: 16px;
+            font-weight: 600;
+        }
+        p{
+            margin: 10px;
+            line-height: 20px;
+        }
+    }
+    .proInfoBox{
+        width: 700px;
+        .proInfo{
+            margin: 10px 25px;
+            
+        }
+
+    }
+    .teamInfoBox{
+        width: 400px;
+        .teamInfo{
+            margin: 10px 25px;
+            p{
+                &:nth-of-type(1){
+                    display: inline;
+                }
+            }
+            span{
+                display: block;
+                &:nth-of-type(1){
+                    display: inline;
+                }
+                &:nth-of-type(2){
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    .subMit{
+        text-align: center;
+        margin-top: 90px;
+        .el-button{
+            width: 150px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+    }
+}

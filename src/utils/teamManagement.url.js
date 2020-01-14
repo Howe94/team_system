@@ -7,10 +7,19 @@ export function interOutnetConfig(data, type, callFunc) {
     }
     return fetchData('/ApprNetInterface/api/sys/outnetConfig/query.v', msg, type)
 }
+//队伍列表
 export function getTeamProInfo(data, type, callFunc) {
     var msg = data
     if(callFunc && (callFunc.constructor === Function)){
         return fetchData('http://localhost:3000/getTeamProInfo', msg, type, callFunc)
     }
     return fetchData('http://localhost:3000/getTeamProInfo', msg, type)
+}
+//队伍查看数修改
+export function changeTeamSeeNum(data, type, callFunc) {
+    var msg = data
+    if(callFunc && (callFunc.constructor === Function)){
+        return fetchData('http://localhost:3000/getTeamProInfo?pro_id=A102', msg, type, callFunc)
+    }
+    return fetchData('http://localhost:3000/getTeamProInfo?pro_id=A102', msg, type)
 }

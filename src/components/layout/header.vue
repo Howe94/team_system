@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-head">
     <div class="head-top">
       <div class="head-left">
         <div class="title">
@@ -32,20 +32,24 @@ export default {
     };
   },
   methods: {
-    handleSelect(index) {//index 1-校内，2-校外
-      console.log(index);
+    handleSelect(index) {
+      //index 1-校内，2-校外
+      this.$router.push({
+        path: "/chooseTeam"
+      });
     }
   }
 };
 </script>
 <style lang="scss">
-.container {
+.container-head {
   text-align: center;
   .head-top {
     display: inline-block;
     width: 1200px;
     height: 50px;
     color: rgb(110, 108, 108);
+    border-bottom: 1px solid rgb(211, 176, 245);
     //   background: rgba(238, 238, 238, 0.623);
     .head-left,
     .head-right {
@@ -67,7 +71,7 @@ export default {
       }
       .tabMenu .el-menu-demo {
         .tabMenuItem {
-            display: inline-block;
+          display: inline-block;
           &:nth-of-type(n) {
             margin-left: 20px;
             cursor: pointer;

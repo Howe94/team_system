@@ -4,8 +4,9 @@ import {
     getCookie,
     setCookie
 } from '../../utils/utils.js'
-// 选择预约大厅
+// 队伍列表
 const chooseTeam = () => import('./views/chooseTeam/index.vue');
+const teamInfo = () => import('./views/teamInfo/index.vue');
 Vue.use(Router)
 
 const router = new Router({
@@ -26,7 +27,16 @@ const router = new Router({
                 title: '选择队伍', // 页面标题
                 requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
             }
-        } 
+        },
+        {
+            path: '/teamInfo',
+            name: 'teamInfo',
+            component: teamInfo,
+            meta: {
+                title: '队伍详情', // 页面标题
+                requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
+            }
+        }
     ]
 })
 

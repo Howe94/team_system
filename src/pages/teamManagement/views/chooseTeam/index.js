@@ -1,26 +1,35 @@
 import {
-    getTeamProInfo
+    getTeamProInfo,
+    changeTeamSeeNum
 } from '../../../../utils/teamManagement.url.js' // 引入接口
 export default {
-    components: {
-    },
+    components: {},
     data() {
         return {
-            teamList:[]
+            teamList: []
         }
     },
     methods: {
         _getTeamProInfo() {
             getTeamProInfo({
-                university:"广东金融学院"
+                university: "广东金融学院"
             }, 'get').then(res => {
                 this.teamList = res.data;
-                console.log(this.teamList)
             })
         },
+        getTeamInfo(item) {
+            this.$router.push({
+                path: '/teamInfo'
+            })
+            this.$store.commit('getTeamInfo', item.pro_id)
+            // changeTeamSeeNum({
+            //     see_num: item.see_num
+            // }, 'put').then(res => {
+            //     console.log(res)
+            // })
+        }
     },
     created() {
-        console.log("aaa")
         this._getTeamProInfo()
     }
 }
