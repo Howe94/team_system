@@ -2,7 +2,24 @@
     width: 1200px;
     // text-align: center;
     margin: 5px auto;
-
+    .search-box{
+        margin-top: 20px;
+         .el-form {
+            .el-form-item {
+                label {
+                  font-size: 16px;
+                  font-weight: 600;
+                }
+            }
+            .el-row {
+                .el-col {
+                  &:nth-of-type(4),&:nth-of-type(5){
+                      margin-left: 20px;
+                  }
+                }
+            }
+        }
+    }
     .team-list {
         .el-col {
             width: 265px;

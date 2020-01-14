@@ -19,7 +19,16 @@ export function getTeamProInfo(data, type, callFunc) {
 export function changeTeamSeeNum(data, type, callFunc) {
     var msg = data
     if(callFunc && (callFunc.constructor === Function)){
-        return fetchData('http://localhost:3000/getTeamProInfo?pro_id=A102', msg, type, callFunc)
+        return fetchData('http://localhost:3000/getTeamProInfo', msg, type, callFunc)
     }
-    return fetchData('http://localhost:3000/getTeamProInfo?pro_id=A102', msg, type)
+    return fetchData('http://localhost:3000/getTeamProInfo', msg, type)
+}
+//获取学院列表
+
+export function getUniversity(data, type, callFunc) {
+    var msg = data
+    if(callFunc && (callFunc.constructor === Function)){
+        return fetchData('http://localhost:3000/getUniversity', msg, type, callFunc)
+    }
+    return fetchData('http://localhost:3000/getUniversity', msg, type)
 }
