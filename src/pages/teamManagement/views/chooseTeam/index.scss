@@ -19,6 +19,7 @@
 
             .el-card .el-card__body {
                 margin: 10px;
+                border-bottom: 1px solid #d2c1c1;
                 h3 {
                     font-size: 18px;
                     font-weight: 800;
@@ -41,7 +42,7 @@
                 }
 
                 span {
-                    margin-bottom: 15px;
+                    margin: 5px 0px 10px;
                     &:nth-of-type(1) {
                         float: left;
                         // margin: 10px;
