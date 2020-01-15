@@ -6,7 +6,10 @@ import {
 } from '../../utils/utils.js'
 // 队伍列表
 const chooseTeam = () => import('./views/chooseTeam/index.vue');
+//队伍详情
 const teamInfo = () => import('./views/teamInfo/index.vue');
+// 项目进度
+const taskSchedule = () => import('./views/taskSchedule/index.vue');
 Vue.use(Router)
 
 const router = new Router({
@@ -34,6 +37,15 @@ const router = new Router({
             component: teamInfo,
             meta: {
                 title: '队伍详情', // 页面标题
+                requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
+            }
+        },
+        {
+            path: '/taskSchedule',
+            name: 'taskSchedule',
+            component: taskSchedule,
+            meta: {
+                title: '项目详情', // 页面标题
                 requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
             }
         }

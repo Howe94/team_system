@@ -21,8 +21,8 @@
                          placeholder="请选择查找的类型">
                 <el-option v-for="(item, key) in pro_typeList"
                            :key="key"
-                           :label="item.val"
-                           :value="item.type"></el-option>
+                           :label="item.value"
+                           :value="item.key"></el-option>
               </el-select>
             </el-form-item>
           </el-col>

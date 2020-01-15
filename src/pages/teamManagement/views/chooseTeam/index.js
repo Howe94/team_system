@@ -1,7 +1,8 @@
 import {
     getTeamProInfo,
     changeTeamSeeNum,
-    getUniversity
+    getUniversity,
+    getProType
 } from '../../../../utils/teamManagement.url.js' // 引入接口
 export default {
     components: {},
@@ -36,6 +37,7 @@ export default {
             //     console.log(res)
             // })
         },
+        // 获取学院
         _getUniversity(){
             getUniversity({
 
@@ -43,6 +45,14 @@ export default {
                 this.universityList = res.data;
             })
         },
+        //获取类型
+        _getProType(){
+            getProType({},'get').then(res =>{
+              if(res.status == 200){
+                this.pro_typeList = res.data;
+              }
+            })
+          },
         onloadMore(){
             console.log("加载更多")
         },
@@ -52,6 +62,7 @@ export default {
     },
     created() {
         this._getUniversity();
-        this._getTeamProInfo()
+        this._getTeamProInfo();
+        this._getProType()
     }
 }

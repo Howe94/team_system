@@ -34,7 +34,13 @@ import {
   Cascader,
   Menu,
   MenuItem,
-  Card
+  Card,
+  Avatar,
+  Container,
+  Aside,
+  Submenu,
+  Header,
+  Main,
 } from 'element-ui'
 import '@/style/lib/theme-chalk/index.css'
 import "../../assets/scss/reset.scss"
@@ -75,6 +81,12 @@ Vue.use(Cascader);
 Vue.use(Menu);
 Vue.use(MenuItem);
 Vue.use(Card);
+Vue.use(Avatar);
+Vue.use(Container)
+Vue.use(Aside)
+Vue.use(Submenu)
+Vue.use(Header)
+Vue.use(Main)
 Vue.prototype.$message = Message;
 router.afterEach((to,from,next) => {
   window.scrollTo(0,0);
