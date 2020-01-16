@@ -4,10 +4,10 @@
       <el-form ref="formdata"
                :model="formdata">
         <el-row>
-          <el-col :span="7">
-            <el-form-item label="按学院查找">
+          <el-col :span="7" v-if="this.$store.state.isCampus">
+            <el-form-item label="按学校查找">
               <el-select v-model="formdata.university"
-                         placeholder="请选择查找的学院">
+                         placeholder="请选择查找的学校">
                 <el-option v-for="(item, key) in universityList"
                            :key="key"
                            :label="item.university"
@@ -55,9 +55,9 @@
                    @click.native="getTeamInfo(item)">
             <h3>{{item.pro_name}}</h3>
             <p>
-              <span v-if="item.university == '广东金融学院'">校内</span>
-              <span v-else>校外</span>
-              | {{item.pro_nature}} | {{item.pro_type}}
+              <!-- <span v-if="item.university == '广东金融学院'">校内</span>
+              <span v-else>校外</span> -->
+             {{item.pro_nature}} | {{item.pro_type}} | {{item.pro_num}}
             </p>
             <p>
               <span>掌握技能：</span>

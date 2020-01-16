@@ -1,4 +1,4 @@
-.container {
+.task-container {
     width: 1200px;
     margin: 20px auto 90px;
     background: rgba(255, 255, 255, 0.699);
@@ -52,6 +52,20 @@
                 // text-align: center;
                 .pro-task{
                     .proBox{
+                        position: relative;
+                        .addNewPro{
+                            position: absolute;
+                            top: 0px;
+                            right: 5px;
+                            .el-button{
+                                width: 80px;
+                                height: 30px;
+                                padding: 0px;
+                                // text-align: center !important;
+                            }
+                        }
+                    }
+                    .proBox, .taskBox{
                         .section-title{
                             font-family: PingFangSC-Medium;
                             font-size: 18px;
@@ -61,6 +75,12 @@
                             padding: 15px 0;
                             border-bottom: 1px solid #112534;
                         }
+                    }
+                    .pro-list{
+                        
+                    }
+                    .task-list{
+
                     }
                 }
             }

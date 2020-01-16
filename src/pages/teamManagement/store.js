@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        proId:''
+        proId:'',
+        isCampus: false,//校内或者校外
     },
     mutations: {
         getTeamInfo(state,proId){
             state.proId = proId;
+        },
+        storeIsCampus(state, isCampus){
+            state.isCampus = isCampus;
         }
     },
     actions: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="task-container">
     <el-container>
       <!-- 侧边菜单栏 -->
       <el-aside>
@@ -8,8 +8,6 @@
             <el-menu
               default-active="2"
               class="el-menu-vertical-demo"
-              @open="handleOpen"
-              @close="handleClose"
               @select="selectTeam"
             >
               <el-submenu index="1">
@@ -22,6 +20,7 @@
                   :key="key"
                   :index="item.team_id"
                   :value="item.team_name"
+                  @click="getProInfo(item.team_id,item.team_name)"
                 >{{item.team_name}}</el-menu-item>
               </el-submenu>
               <el-submenu index="2">
@@ -44,20 +43,40 @@
       <el-container>
         <el-header>
           <!-- //面包屑 -->
-          <bread-crumb></bread-crumb>
+          <bread-crumb :location="teamName"></bread-crumb>
         </el-header>
         <el-main>
           <div class="pro-task">
             <!-- 我的项目  -->
             <div class="proBox">
-              <h3 class="section-title">我的项目</h3>
-              <div class="pro-list">
-
-              </div>
+              <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tab-pane
+                  v-for="(item, index) in tabList"
+                  :key="index"
+                  :label="item.navName"
+                  :name="item.key"
+                >
+                  <proTable
+                    :allProData="controlProList"
+                    :pageObj="pageObj"
+                    @clickPages="changePages"
+                  ></proTable>
+                  <!-- <checkProMent
+                    :checkData="controlProList"
+                    :pageObj="pageObj"
+                    @clickPages="changePages"
+                  ></checkProMent> -->
+                </el-tab-pane>
+              </el-tabs>
+              <div class="addNewPro" v-if="itemAttribute">
+              <el-button type="primary">新增项目</el-button>
             </div>
+            </div>
+            
             <!-- 我的任务 -->
             <div class="taskBox">
-
+              <h3 class="section-title">我的任务</h3>
+              <div class="task-list"></div>
             </div>
           </div>
         </el-main>

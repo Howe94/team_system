@@ -3,9 +3,8 @@
     <div class="breadCrumb">
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item>首页</el-breadcrumb-item>
-            <el-breadcrumb-item class="order">我的团队</el-breadcrumb-item>
-            <!-- <el-breadcrumb-item>我的项目</el-breadcrumb-item> -->
-            <!-- <el-breadcrumb-item >{{location}}</el-breadcrumb-item> -->
+            <el-breadcrumb-item>我的队伍</el-breadcrumb-item>
+            <el-breadcrumb-item class="order">{{location}}</el-breadcrumb-item>
         </el-breadcrumb>
         <!--虚线分割-->
         <!-- <div class="line"></div> -->

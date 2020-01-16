@@ -2,7 +2,7 @@
   <div class="container-head">
     <div class="head-top">
       <div class="head-left">
-        <div class="title">
+        <div class="title" @click="goHomePage">
           <h3>找团队|找项目</h3>
         </div>
         <div class="tabMenu">
@@ -131,11 +131,15 @@ export default {
     };
   },
   methods: {
-    handleSelect(index) {
-      //index 1-校内，2-校外
+    goHomePage(){
       this.$router.push({
         path: "/chooseTeam"
       });
+    },
+    handleSelect(index) {
+      //index 1-校内，2-校外
+      this.$store.commit('storeIsCampus', index==1? false : true)
+      // console.log(this.$store.state.isCampus)
       switch (index) {
         case 1:
           this.inCampus = true;
@@ -191,6 +195,7 @@ export default {
     .head-left {
       float: left;
       .title h3 {
+        cursor: pointer;
         font-size: 18px;
         font-weight: 800;
       }
