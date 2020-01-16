@@ -20,7 +20,7 @@
                   :key="key"
                   :index="item.team_id"
                   :value="item.team_name"
-                  @click="getProInfo(item.team_id,item.team_name)"
+                  @click="getProInfo(item)"
                 >{{item.team_name}}</el-menu-item>
               </el-submenu>
               <el-submenu index="2">
@@ -33,7 +33,7 @@
                   :key="key"
                   :index="item.team_id"
                   :value="item.team_name"
-                  @click="getProInfo(item.team_id,item.team_name)"
+                  @click="getProInfo(item)"
                 >{{item.team_name}}</el-menu-item>
               </el-submenu>
             </el-menu>
@@ -61,11 +61,6 @@
                     :pageObj="pageObj"
                     @clickPages="changePages"
                   ></proTable>
-                  <!-- <checkProMent
-                    :checkData="controlProList"
-                    :pageObj="pageObj"
-                    @clickPages="changePages"
-                  ></checkProMent> -->
                 </el-tab-pane>
               </el-tabs>
               <div class="addNewPro" v-if="itemAttribute">
@@ -76,7 +71,13 @@
             <!-- 我的任务 -->
             <div class="taskBox">
               <h3 class="section-title">我的任务</h3>
-              <div class="task-list"></div>
+              <div class="task-list">
+                <taskTable
+                    :allTaskData="taskList"
+                    :pageObj="pageObj"
+                    @clickPages="changePages"
+                  ></taskTable>
+              </div>
             </div>
           </div>
         </el-main>

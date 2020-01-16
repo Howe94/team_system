@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="pro-table">
-  <el-table :data="allProData" border style="width: 100%">
+  <el-table :data="allProData" border style="width: 100%" empty-text="暂无项目">
     <el-table-column label="序号" width="70" :resizable="false">
       <template slot-scope="scope">
         <span>{{ (scope.$index+1)+(pageObj.currPage - 1)*pageObj.pageRowNum }}</span>
@@ -57,7 +57,7 @@
   </el-table>
   </div>
   <div class="page-content">
-    <p class="total-items">共{{pageObj.totalRow}}条事项</p>
+    <p class="total-items">共{{pageObj.totalRow}}条</p>
       <el-pagination
         background
         @current-change="changePage"

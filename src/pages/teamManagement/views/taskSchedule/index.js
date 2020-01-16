@@ -1,15 +1,16 @@
 import proTable from './taskModel/proTable.vue'
-import checkProMent from './taskModel/checkProMent.vue'
+import taskTable from './taskModel/taskTable.vue'
 import {
   getMyTeamList,
-  getMyProList
+  getMyProList,
+  getMyTaskList
 } from '../../../../utils/teamManagement.url.js' // 引入接口
 import BreadCrumb from '../../../../components/Breadcrumb/breadCrumb.vue'
 export default {
   components: {
     BreadCrumb,
     proTable,
-    checkProMent
+    taskTable
   },
   data() {
     return {
@@ -37,6 +38,7 @@ export default {
       completedProList: [], //已完成的项目
       controlProList: [], //选择的项目列表
       teamName: '', //团队名称
+      taskList:[],//任务列表
       pageObj: {
         pageRowNum: 4,
         currPage: 1,
@@ -80,14 +82,15 @@ export default {
       // console.log(index)
 
     },
-    getProInfo(teamId, teamName) {
+    getProInfo(team) {
       this.activeName = 'first'
-      this.selectTeamId = teamId;
-      this.teamName = teamName;
+      this.itemAttribute = team.is_leader;
+      this.selectTeamId = team.team_id;
+      this.teamName = team.team_name;
       this.myProList = [];
       this.getOnProList = [];
       this.completedProList = [];
-      this._getMyProList(teamId)
+      this._getMyProList(this.selectTeamId)
     },
     //获取团队列表
     _getMyTeamList() {
@@ -131,10 +134,24 @@ export default {
         console.log(err);
         this.$message.error(err);
       });
-    }
+    },
+    //获取团队列表
+    _getMyTaskList() {
+      getMyTaskList({
+        user_Id: this.$store.state.userId || ''
+      }, "get").then(res => {
+        if (res.status == 200) {
+          this.taskList = res.data;
+        }
+      }).catch(err => {
+        console.log(err);
+        this.$message.error(err);
+      });
+    },
 
   },
   created() {
     this._getMyTeamList()
+    this._getMyTaskList()
   }
 }

@@ -58,3 +58,11 @@ export function getMyProList(data, type, callFunc) {
     }
     return fetchData('http://localhost:3000/getMyProList', msg, type)
 }
+//获取任务列表getMyTaskList
+export function getMyTaskList(data, type, callFunc) {
+    var msg = data
+    if(callFunc && (callFunc.constructor === Function)){
+        return fetchData('http://localhost:3000/getMyTaskList', msg, type, callFunc)
+    }
+    return fetchData('http://localhost:3000/getMyTaskList', msg, type)
+}
