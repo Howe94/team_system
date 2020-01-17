@@ -1,0 +1,40 @@
+.container {
+    width: 1200px;
+    margin: 0px auto;
+
+    .project-section {
+        .breadCrumb {
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .head-navMenu {
+            .navleft {
+                position: relative;
+            }
+
+            .teamMemberNotice {
+                width: 150px;
+                position: absolute;
+                top: 10px;
+                right: 0px;
+
+                span {
+                    cursor: pointer;
+                    font-size: 16px;
+                }
+
+                .notice {
+                    cursor: pointer;
+                    margin-left: 40px;
+                }
+            }
+        }
+        .demo-drawer__content{
+            width: 400px;
+            height: 500px;
+            background: #aaaaaa;
+        }
+    }
+
+}

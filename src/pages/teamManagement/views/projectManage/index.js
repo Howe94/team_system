@@ -9,7 +9,11 @@ export default {
             taskList:[],//项目任务列表
             teamName:"",//团队名称
             proName:"",//项目名称
-            breadAction:[]
+            breadAction:[],
+            activeName:'first',
+            member:5,//团队成员
+            drawer: false,
+            form:[]
         }
     },
     methods: {
@@ -21,12 +25,16 @@ export default {
                     this.taskList = res.data;
                 }
             })
+        },
+        handleClick(){
+
         }
      
     },
+    mounted(){
+    },
     created() {
-        console.log(this.$route.params)
-        this.breadAction = this.$route.params;
+        this.breadAction = JSON.parse(sessionStorage.getItem("PROJECTINFO"))
        this._getTaskList(this.$route.query.proId)
         // console.log(this.taskList)
     }

@@ -73,12 +73,12 @@ export default {
   },
   methods: {
     handleClick(row) {
-      console.log(row)
+      sessionStorage.setItem("PROJECTINFO",JSON.stringify({"proId":row.pro_id,"proName":row.pro_name,"teamId":row.team_id,"teamName":row.team_name}))
       this.$router.push({
         name:"projectManage",
         path: "/projectManage",
         query: {proId:row.pro_id},
-        params:{teamName: row.team_name,proName:row.pro_name}
+        // params:{teamName: row.team_name,proName:row.pro_name}
       });
       console.log(row);
     },

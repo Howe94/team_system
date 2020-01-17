@@ -41,6 +41,8 @@ import {
   Submenu,
   Header,
   Main,
+  Badge,
+  Drawer,
 } from 'element-ui'
 import '@/style/lib/theme-chalk/index.css'
 import "../../assets/scss/reset.scss"
@@ -87,6 +89,8 @@ Vue.use(Aside)
 Vue.use(Submenu)
 Vue.use(Header)
 Vue.use(Main)
+Vue.use(Badge)
+Vue.use(Drawer)
 Vue.prototype.$message = Message;
 router.afterEach((to,from,next) => {
   window.scrollTo(0,0);
