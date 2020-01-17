@@ -1,5 +1,6 @@
 import proTable from './taskModel/proTable.vue'
 import taskTable from './taskModel/taskTable.vue'
+import teamDialog from "../../../../components/teamDialog/index.vue";
 import {
   getMyTeamList,
   getMyProList,
@@ -10,7 +11,8 @@ export default {
   components: {
     BreadCrumb,
     proTable,
-    taskTable
+    taskTable,
+    teamDialog
   },
   data() {
     return {
@@ -39,6 +41,10 @@ export default {
       controlProList: [], //选择的项目列表
       teamName: '', //团队名称
       taskList:[],//任务列表
+      centerDialogVisible: false, //新建项目弹框
+      titleTip:"添加新项目",
+      subTip:"完成并新增",
+      dialogTeamInfo:[],//添加新项目的团队信息
       pageObj: {
         pageRowNum: 4,
         currPage: 1,
@@ -83,6 +89,7 @@ export default {
 
     },
     getProInfo(team) {
+      this.dialogTeamInfo = team;
       this.activeName = 'first'
       this.itemAttribute = team.is_leader;
       this.selectTeamId = team.team_id;
@@ -148,6 +155,17 @@ export default {
         this.$message.error(err);
       });
     },
+    addProInfo(){
+      this.centerDialogVisible = true;
+    },
+    //添加项目信息
+    addTeam(teamInfo){
+      Object.assign({},teamInfo,this.selectTeamId)
+      console.log(teamInfo)
+    },
+    closeDialog(value){
+      this.centerDialogVisible = value;
+    }
 
   },
   created() {

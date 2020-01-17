@@ -19,7 +19,7 @@
         <p>{{teamInfo.team_describe}}</p>
       </div>
     </div>
-    <div class="subMit"><el-button type="primary" plain>申请加队</el-button></div>
+    <div class="subMit"><el-button type="primary" plain :disabled="teamInfo.pro_current_num == teamInfo.pro_limited_num">申请加队</el-button></div>
   </div>
 </template>
 

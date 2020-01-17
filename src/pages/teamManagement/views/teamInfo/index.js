@@ -16,7 +16,7 @@ export default {
             getTeamProInfo({
                 pro_id: proId
             }, 'get').then(res => {
-                this.teamInfo = res.data[1];
+                this.teamInfo = res.data[0];
                 console.log(this.teamInfo)
             })
         },

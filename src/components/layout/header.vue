@@ -41,104 +41,39 @@
         </div>
       </div>
     </div>
-    <el-dialog title="创建项目" :visible.sync="centerDialogVisible" width="30%" center>
-      <el-form :model="proForm" :rules="proFormRules">
-        <el-form-item label="项目名称" :label-width="formLabelWidth" prop="proName">
-          <el-input v-model="proForm.pro_name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="项目描述" :label-width="formLabelWidth" prop="proDescribe">
-          <el-input v-model="proForm.pro_describe" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="项目类型" :label-width="formLabelWidth" prop="proType">
-          <el-select v-model="proForm.pro_type" placeholder="请选择项目类型">
-            <el-option
-              v-for="(item, key) in proTypeList"
-              :key="key"
-              :label="item.value"
-              :value="item.key"
-            ></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="团队名称" :label-width="formLabelWidth" prop="teamName">
-          <el-input v-model="proForm.team_name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="团队描述" :label-width="formLabelWidth" prop="teamDescribe">
-          <el-input v-model="proForm.team_describe" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="团队人数" :label-width="formLabelWidth" prop="teamNumber">
-          <el-input v-model="proForm.team_number" autocomplete="off"></el-input>
-        </el-form-item>
-      </el-form>
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="centerDialogVisible = false">完成并创建</el-button>
-      </span>
-    </el-dialog>
+    <team-dialog
+      :centerDialogVisible="centerDialogVisible"
+      :titleTip="titleTip"
+      :subTip="subTip"
+      @closeDialog="closeDialog"
+      @addTeam="addTeam"
+    ></team-dialog>
   </div>
 </template>
 <script>
-import { getProType } from "../../utils/teamManagement.url.js"; // 引入接口
+import teamDialog from "../teamDialog/index.vue";
 export default {
-  components: {},
+  components: { teamDialog },
   data() {
     return {
       activeIndex: "1",
       username: "曹荣武",
-      inCampus: true,
-      outCampus: false,
       centerDialogVisible: false, //新建团队弹框
-      proTypeList: [],
-      proForm: {
-        pro_name: "",
-        pro_describe: "",
-        pro_type: "",
-        team_name: "",
-        team_describe: "",
-        team_number: ""
-      },
-      proFormRules: {
-        proName: {
-          required: true,
-          message: "请输入项目名称",
-          trigger: "blur"
-        },
-        proDescribe: {
-          required: false,
-          message: "请输入项目描述",
-          trigger: "blur"
-        },
-        proType: {
-          required: true,
-          message: "请输入项目类型",
-          trigger: "blur"
-        },
-        teamName: {
-          required: true,
-          message: "请输入团队名称",
-          trigger: "blur"
-        },
-        teamDescribe: {
-          required: false,
-          message: "请输入团队描述",
-          trigger: "blur"
-        },
-        teamNumber: {
-          required: true,
-          message: "请输入团队人数",
-          trigger: "blur"
-        }
-      },
-      formLabelWidth: "80px"
+      titleTip: "新建团队项目",
+      subTip:"完成并创建",
+      inCampus: true,
+      outCampus: false
     };
   },
   methods: {
-    goHomePage(){
+    goHomePage() {
       this.$router.push({
         path: "/chooseTeam"
       });
     },
     handleSelect(index) {
       //index 1-校内，2-校外
-      this.$store.commit('storeIsCampus', index==1? false : true)
+      this.$store.commit("storeIsCampus", index == 1 ? false : true);
       // console.log(this.$store.state.isCampus)
       switch (index) {
         case 1:
@@ -157,23 +92,20 @@ export default {
       } else if (command == "userInfo") {
       } else if (command == "myTeam") {
         this.$router.push({
-        path: "/taskSchedule"
-      });
+          path: "/taskSchedule"
+        });
       } else {
         console.log("退出登录");
       }
     },
-    _getProType() {
-      getProType({}, "get").then(res => {
-        if (res.status == 200) {
-          this.proTypeList = res.data;
-        }
-      });
+    closeDialog(value) {
+      this.centerDialogVisible = value;
+    },
+    addTeam(teamInfo){
+      console.log(teamInfo)
     }
   },
-  created() {
-    this._getProType();
-  }
+  created() {}
 };
 </script>
 <style lang="scss">

@@ -1,10 +1,15 @@
 <template>
     <!--面包屑导航-->
     <div class="breadCrumb">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb separator-class="el-icon-arrow-right" v-if="isShow">
             <el-breadcrumb-item>首页</el-breadcrumb-item>
             <el-breadcrumb-item>我的队伍</el-breadcrumb-item>
             <el-breadcrumb-item class="order">{{location}}</el-breadcrumb-item>
+        </el-breadcrumb>
+        <el-breadcrumb separator-class="el-icon-arrow-right" v-else>
+            <el-breadcrumb-item>首页</el-breadcrumb-item>
+            <el-breadcrumb-item>{{breadAction.teamName}}</el-breadcrumb-item>
+            <el-breadcrumb-item class="order">{{breadAction.proName}}</el-breadcrumb-item>
         </el-breadcrumb>
         <!--虚线分割-->
         <!-- <div class="line"></div> -->
@@ -14,7 +19,7 @@
 <script>
     export default {
         name: "breadCrumb",
-        props:['location']
+        props:['location','breadAction','isShow']
     }
 </script>
 

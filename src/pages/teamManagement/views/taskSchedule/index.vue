@@ -5,11 +5,7 @@
       <el-aside>
         <el-row class="tac">
           <el-col :span="24">
-            <el-menu
-              default-active="2"
-              class="el-menu-vertical-demo"
-              @select="selectTeam"
-            >
+            <el-menu default-active="2" class="el-menu-vertical-demo" @select="selectTeam">
               <el-submenu index="1">
                 <template slot="title">
                   <i class="el-icon-location"></i>
@@ -43,7 +39,7 @@
       <el-container>
         <el-header>
           <!-- //面包屑 -->
-          <bread-crumb :location="teamName"></bread-crumb>
+          <bread-crumb :location="teamName" :isShow=true></bread-crumb>
         </el-header>
         <el-main>
           <div class="pro-task">
@@ -64,25 +60,29 @@
                 </el-tab-pane>
               </el-tabs>
               <div class="addNewPro" v-if="itemAttribute">
-              <el-button type="primary">新增项目</el-button>
+                <el-button type="primary" @click="addProInfo">新增项目</el-button>
+              </div>
             </div>
-            </div>
-            
+
             <!-- 我的任务 -->
             <div class="taskBox">
               <h3 class="section-title">我的任务</h3>
               <div class="task-list">
-                <taskTable
-                    :allTaskData="taskList"
-                    :pageObj="pageObj"
-                    @clickPages="changePages"
-                  ></taskTable>
+                <taskTable :allTaskData="taskList" :pageObj="pageObj" @clickPages="changePages"></taskTable>
               </div>
             </div>
           </div>
         </el-main>
       </el-container>
     </el-container>
+    <team-dialog
+      :centerDialogVisible="centerDialogVisible"
+      :titleTip="titleTip"
+      :dialogTeamInfo="dialogTeamInfo"
+      :subTip="subTip"
+      @closeDialog="closeDialog"
+      @addTeam="addTeam"
+    ></team-dialog>
   </div>
 </template>
 <script src="./index.js"></script>

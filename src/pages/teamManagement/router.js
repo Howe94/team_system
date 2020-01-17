@@ -10,6 +10,8 @@ const chooseTeam = () => import('./views/chooseTeam/index.vue');
 const teamInfo = () => import('./views/teamInfo/index.vue');
 // 项目进度
 const taskSchedule = () => import('./views/taskSchedule/index.vue');
+//项目管理
+const projectManage = () => import('./views/projectManage/index.vue')
 Vue.use(Router)
 
 const router = new Router({
@@ -48,7 +50,18 @@ const router = new Router({
                 title: '项目详情', // 页面标题
                 requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
             }
+        },
+        //项目管理
+        {
+            path: '/projectManage',
+            name: 'projectManage',
+            component: projectManage,
+            meta: {
+                title: '项目详情', // 页面标题
+                requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
+            }
         }
+
     ]
 })
 
@@ -79,7 +92,7 @@ router.beforeEach((to, from, next) => {
         if (cookie) { // 
             next();
         } else {
-            if ( cookeiToken) {
+            if (cookeiToken) {
                 setCookie('access-token', cookeiToken);
                 next();
             } else {

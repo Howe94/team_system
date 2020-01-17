@@ -66,3 +66,11 @@ export function getMyTaskList(data, type, callFunc) {
     }
     return fetchData('http://localhost:3000/getMyTaskList', msg, type)
 }
+//获取项目的任务列表getTaskList
+export function getTaskList(data, type, callFunc) {
+    var msg = data
+    if(callFunc && (callFunc.constructor === Function)){
+        return fetchData('http://localhost:3000/getTaskList', msg, type, callFunc)
+    }
+    return fetchData('http://localhost:3000/getTaskList', msg, type)
+}
