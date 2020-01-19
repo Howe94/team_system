@@ -6,9 +6,9 @@
       <div class="head-navMenu">
         <div class="navleft">
           <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="任务" name="first">任务</el-tab-pane>
-            <el-tab-pane label="聊天" name="second">聊天</el-tab-pane>
-            <el-tab-pane label="发布公告" name="third">发布公告</el-tab-pane>
+            <el-tab-pane label="任务" name="first"><taskModel :taskList="taskList"></taskModel></el-tab-pane>
+            <el-tab-pane label="文件" name="second"><chatModel></chatModel></el-tab-pane>
+            <el-tab-pane label="发布公告" name="third"><annouceModel></annouceModel></el-tab-pane>
           </el-tabs>
           <div class="teamMemberNotice">
             <span @click="drawer = true">

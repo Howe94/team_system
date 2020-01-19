@@ -1,9 +1,12 @@
 import BreadCrumb from '../../../../components/Breadcrumb/breadCrumb.vue'
+import taskModel from './projectModel/taskModel.vue'
+import chatModel from './projectModel/chatModel.vue'
+import annouceModel from './projectModel/annouceModel.vue'
 import {
     getTaskList
 } from '../../../../utils/teamManagement.url.js' // 引入接口
 export default {
-    components: {BreadCrumb},
+    components: {BreadCrumb,taskModel,chatModel,annouceModel},
     data() {
         return {
             taskList:[],//项目任务列表
@@ -13,7 +16,8 @@ export default {
             activeName:'first',
             member:5,//团队成员
             drawer: false,
-            form:[]
+            form:[],
+            controlList:[]
         }
     },
     methods: {
@@ -26,8 +30,8 @@ export default {
                 }
             })
         },
-        handleClick(){
-
+        handleClick(tab){
+            // console.log(tab)
         }
      
     },
