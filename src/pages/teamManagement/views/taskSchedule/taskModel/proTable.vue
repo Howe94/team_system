@@ -12,36 +12,36 @@
             <ul>
               <li>
                 <p>项目名称</p>
-                <p>{{scope.row.pro_name}}</p>
+                <p>{{scope.row.proName}}</p>
               </li>
               <li>
                 <p>项目起止时间</p>
-                <p>{{scope.row.pro_start_time}}~{{scope.row.pro_end_time}}</p>
+                <p>{{scope.row.proStartTime}}~{{scope.row.proEndTime}}</p>
               </li>
               <li>
                 <p>项目创建时间</p>
-                <p>{{scope.row.pro_date}}</p>
+                <p>{{scope.row.proDate}}</p>
               </li>
             </ul>
             <ul>
               <li>
                 <p>队长名称</p>
-                <p>{{scope.row.leader_name}}</p>
+                <p>{{scope.row.leaderName}}</p>
               </li>
               <li>
                 <p>团队名称</p>
-                <p>{{scope.row.team_name}}</p>
+                <p>{{scope.row.teamName}}</p>
               </li>
               <li>
                 <p>项目类型</p>
-                <p>{{scope.row.pro_type}}</p>
+                <p>{{scope.row.proType}}</p>
               </li>
             </ul>
           </template>
         </el-table-column>
         <el-table-column label="项目描述" width="169" :resizable="false">
           <template slot-scope="scope">
-            <span>{{scope.row.pro_describe}}</span>
+            <span>{{scope.row.proDescribe}}</span>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="130" :resizable="false">
@@ -73,12 +73,12 @@ export default {
   },
   methods: {
     handleClick(row) {
-      sessionStorage.setItem("PROJECTINFO",JSON.stringify({"proId":row.pro_id,"proName":row.pro_name,"teamId":row.team_id,"teamName":row.team_name}))
+      sessionStorage.setItem("PROJECTINFO",JSON.stringify({"proId":row.proId,"proName":row.proName,"teamId":row.teamId,"teamName":row.teamName}))
       this.$router.push({
         name:"projectManage",
         path: "/projectManage",
-        query: {proId:row.pro_id},
-        // params:{teamName: row.team_name,proName:row.pro_name}
+        query: {proId:row.proId},
+        // params:{teamName: row.teamName,proName:row.proName}
       });
       console.log(row);
     },

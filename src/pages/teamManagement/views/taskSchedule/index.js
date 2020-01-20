@@ -91,9 +91,9 @@ export default {
     getProInfo(team) {
       this.dialogTeamInfo = team;
       this.activeName = 'first'
-      this.itemAttribute = team.is_leader;
-      this.selectTeamId = team.team_id;
-      this.teamName = team.team_name;
+      this.itemAttribute = team.isLeader;
+      this.selectTeamId = team.teamId;
+      this.teamName = team.teamName;
       this.myProList = [];
       this.getOnProList = [];
       this.completedProList = [];
@@ -102,11 +102,11 @@ export default {
     //获取团队列表
     _getMyTeamList() {
       getMyTeamList({
-        user_Id: this.$store.state.userId || ''
+        userId: this.$store.state.userId || ''
       }, "get").then(res => {
         if (res.status == 200) {
           res.data.map((item, index) => {
-            if (item.is_leader) {
+            if (item.isLeader) {
               this.myTeamList.push(item);
             } else {
               this.joinTeamList.push(item)
@@ -122,13 +122,13 @@ export default {
     // .slice((this.pageObj.currPage-1)*this.pageObj.currPage,((this.pageObj.currPage-1)*this.pageObj.currPage)+this.pageObj.pageRowNum);
     _getMyProList(teamid) {
       getMyProList({
-        user_id: this.$store.state.userId || '',
-        team_id: teamid
+        userId: this.$store.state.userId || '',
+        teamId: teamid
       }, "get").then(res => {
         if (res.status == 200) {
           this.myProList = res.data;
           this.myProList.map((item, index) => {
-            if (item.pro_status) {
+            if (item.proStatus) {
               this.completedProList.push(item)
             } else {
               this.getOnProList.push(item)
@@ -145,7 +145,7 @@ export default {
     //获取团队列表
     _getMyTaskList() {
       getMyTaskList({
-        user_Id: this.$store.state.userId || ''
+        userId: this.$store.state.userId || ''
       }, "get").then(res => {
         if (res.status == 200) {
           this.taskList = res.data;

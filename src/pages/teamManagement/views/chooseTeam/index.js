@@ -11,11 +11,11 @@ export default {
             teamList: [],
             formdata:{
                 university:"",//按照学院搜索
-                pro_type:"",//按照类型搜索
+                proType:"",//按照类型搜索
                 searchKey:""//搜索关键字
             },
             universityList:[],//学院列表
-            pro_typeList:[]//类型列表
+            proTypeList:[]//类型列表
         }
     },
     methods: {
@@ -30,7 +30,7 @@ export default {
             this.$router.push({
                 path: '/teamInfo'
             })
-            this.$store.commit('getTeamInfo', item.pro_id)
+            this.$store.commit('getTeamInfo', item.proId)
             // changeTeamSeeNum({
             //     see_num: item.see_num
             // }, 'put').then(res => {
@@ -49,7 +49,7 @@ export default {
         _getProType(){
             getProType({},'get').then(res =>{
               if(res.status == 200){
-                this.pro_typeList = res.data;
+                this.proTypeList = res.data;
               }
             })
           },

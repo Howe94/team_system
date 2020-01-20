@@ -10,20 +10,20 @@
     >
       <el-table-column width="220">
         <template slot-scope="scope">
-          <p>{{scope.row.task_start_time}} ~ {{scope.row.task_end_time}}</p>
+          <p>{{scope.row.taskStartTime}} ~ {{scope.row.taskEndTime}}</p>
         </template>
       </el-table-column>
       <el-table-column width="618">
         <template slot-scope="scope">
-          <p>{{scope.row.task_content}}</p>
+          <p>{{scope.row.taskContent}}</p>
         </template>
       </el-table-column>
       <el-table-column>
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.task_status == 1">任务池</el-tag>
-          <el-tag type="warning" v-if="scope.row.task_status == 2">待完成</el-tag>
-          <el-tag type="info" v-if="scope.row.task_status == 3">工作中</el-tag>
-          <el-tag type="success" v-if="scope.row.task_status == 4">已完成</el-tag>
+          <el-tag v-if="scope.row.taskStatus == 1">任务池</el-tag>
+          <el-tag type="warning" v-if="scope.row.taskStatus == 2">待完成</el-tag>
+          <el-tag type="info" v-if="scope.row.taskStatus == 3">工作中</el-tag>
+          <el-tag type="success" v-if="scope.row.taskStatus == 4">已完成</el-tag>
         </template>
       </el-table-column>
     </el-table>

@@ -14,10 +14,10 @@
                 <el-menu-item
                   v-for="(item, key) in myTeamList"
                   :key="key"
-                  :index="item.team_id"
-                  :value="item.team_name"
+                  :index="item.teamId"
+                  :value="item.teamName"
                   @click="getProInfo(item)"
-                >{{item.team_name}}</el-menu-item>
+                >{{item.teamName}}</el-menu-item>
               </el-submenu>
               <el-submenu index="2">
                 <template slot="title">
@@ -27,10 +27,10 @@
                 <el-menu-item
                   v-for="(item, key) in joinTeamList"
                   :key="key"
-                  :index="item.team_id"
-                  :value="item.team_name"
+                  :index="item.teamId"
+                  :value="item.teamName"
                   @click="getProInfo(item)"
-                >{{item.team_name}}</el-menu-item>
+                >{{item.teamName}}</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>

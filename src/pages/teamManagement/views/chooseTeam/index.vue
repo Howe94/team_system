@@ -17,9 +17,9 @@
           </el-col>
           <el-col :span="7">
             <el-form-item label="按类型查找">
-              <el-select v-model="formdata.pro_type"
+              <el-select v-model="formdata.proType"
                          placeholder="请选择查找的类型">
-                <el-option v-for="(item, key) in pro_typeList"
+                <el-option v-for="(item, key) in proTypeList"
                            :key="key"
                            :label="item.value"
                            :value="item.key"></el-option>
@@ -53,11 +53,11 @@
           <el-card :body-style="{ padding: '0px' }"
                    shadow="hover"
                    @click.native="getTeamInfo(item)">
-            <h3>{{item.pro_name}}</h3>
+            <h3>{{item.proName}}</h3>
             <p>
               <!-- <span v-if="item.university == '广东金融学院'">校内</span>
               <span v-else>校外</span> -->
-             {{item.pro_nature}} | {{item.pro_type}} | {{item.pro_num}}
+             {{item.proNature}} | {{item.proType}} | {{item.proNum}}
             </p>
             <p>
               <span>掌握技能：</span>
@@ -66,7 +66,7 @@
             <span>{{item.university}}</span>
             <span>
               <i class="el-icon-view"></i>
-              {{item.see_num}}
+              {{item.seeNum}}
             </span>
           </el-card>
         </el-col>
