@@ -43,6 +43,7 @@ import {
   Main,
   Badge,
   Drawer,
+  DatePicker,
 } from 'element-ui'
 import '@/style/lib/theme-chalk/index.css'
 import "../../assets/scss/reset.scss"
@@ -91,6 +92,7 @@ Vue.use(Header)
 Vue.use(Main)
 Vue.use(Badge)
 Vue.use(Drawer)
+Vue.use(DatePicker)
 Vue.prototype.$message = Message;
 router.afterEach((to,from,next) => {
   window.scrollTo(0,0);

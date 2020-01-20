@@ -74,3 +74,11 @@ export function getTaskList(data, type, callFunc) {
     }
     return fetchData('http://localhost:3000/getTaskList', msg, type)
 }
+//获取团队的成员列表 
+export function getMemberList(data, type, callFunc) {
+    var msg = data
+    if(callFunc && (callFunc.constructor === Function)){
+        return fetchData('http://localhost:3000/getMemberList', msg, type, callFunc)
+    }
+    return fetchData('http://localhost:3000/getMemberList', msg, type)
+}
