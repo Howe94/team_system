@@ -32,6 +32,9 @@ export default {
         },
         handleClick(tab){
             // console.log(tab)
+        },
+        handleClose(){
+            
         }
      
     },

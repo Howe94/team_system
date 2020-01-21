@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="drawerBox">
-        <el-drawer :visible.sync="drawer" :modal="false" direction="rtl">
+        <el-drawer :visible.sync="drawer" :modal="false" direction="rtl" :before-close="handleClose">
           <div class="demo-drawer__content">就看撒比赛的精彩吧就吧阿森纳从西安开始筹备快递</div>
         </el-drawer>
       </div>

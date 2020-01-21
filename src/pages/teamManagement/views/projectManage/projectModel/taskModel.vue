@@ -11,7 +11,7 @@
           <div class="poolList" v-for="(item,index) in poolList" :key="index">
             <el-card shadow="hover" :body-style="{ padding: '10px' }">
               <p>{{item.taskContent}}</p>
-              <span @click="assignTask"></span>
+              <span @click="assignTask(item.taskId)"></span>
             </el-card>
           </div>
         </div>
@@ -31,7 +31,7 @@
                 <p>{{item.taskCharger}}</p>
               </div>
               <p>{{item.taskStartTime}}~{{item.taskEndTime}}</p>
-              <span @click="assignTask"></span>
+              <span @click="confirmTask(item)"></span>
             </el-card>
           </div>
         </div>
@@ -90,7 +90,7 @@
         ref="assignForm"
         :label-position="labelPosition"
       >
-        <el-form-item label="任务安排成员" :label-width="formLabelWidth" prop="selectMembers">
+        <el-form-item label="任务待认领" :label-width="formLabelWidth" prop="selectMembers">
           <el-select v-model="assignForm.selectMembers" multiple collapse-tags placeholder="请选择成员">
             <el-option
               v-for="item in teamNumberList"
@@ -111,6 +111,16 @@
             end-placeholder="结束日期"
           ></el-date-picker>
         </el-form-item>
+        <el-form-item label="优先级" :label-width="formLabelWidth" prop="priority">
+          <el-select v-model="assignForm.priority" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="assignTaskForm">确认分配</el-button>
@@ -129,8 +139,10 @@ export default {
       titleTip: "选择任务分配的成员", //弹框标题
       labelPosition: "left",
       assignForm: {
+        taskId:'',
         selectMembers: [], //选择的队员
-        startEndTime: [] //任务起止时间
+        startEndTime: [], //任务起止时间
+        priority: "" //任务优先级 1-严重，2-一般， 3-缓慢
       },
       assignFormRules: {
         selectMembers: {
@@ -142,8 +154,24 @@ export default {
           required: true,
           message: "请输入任务起止时间",
           trigger: "blur"
-        }
+        },
+        priority:{
+          required: true,
+          message: "请选择任务优先级",
+          trigger: "blur"
+        },
       },
+      options: [{
+          value: '1',
+          label: '严重'
+        }, {
+          value: '2',
+          label: '一般'
+        }, {
+          value: '3',
+          label: '缓慢'
+        }
+      ],
       formLabelWidth: "107px",
       teamNumberList: [], //队伍成员
       poolNum: 3, //任务池的任务个数
@@ -154,16 +182,22 @@ export default {
     };
   },
   methods: {
-    assignTask() {
+    assignTask(taskId) {
+      this.assignForm.taskId = taskId;
       this.centerDialogVisible = true;
     },
     handleClose() {
       this.centerDialogVisible = false;
     },
+    //分配任务
     assignTaskForm() {
       this.centerDialogVisible = false;
-      console.log(this.assignForm.startEndTime);
-      console.log("分配任务");
+      console.log(this.assignForm);
+    },
+    //确认任务
+    confirmTask(val) {
+      console.log(val);
+      console.log("确认任务");
     },
     //获取成员列表
     _getMemberList(teamId) {
@@ -175,7 +209,6 @@ export default {
       ).then(res => {
         if (res.status == 200) {
           this.teamNumberList = res.data;
-          console.log(res.data);
         }
       });
     }
@@ -199,7 +232,6 @@ export default {
             break;
         }
       });
-      console.log(this.poolList);
     }
   },
   created() {
@@ -224,26 +256,10 @@ export default {
     border-radius: 4px;
     border: 1px dotted #d9d9df;
     box-shadow: 2px 0px 19px 0px rgba(241, 226, 226, 0.52);
-    overflow: auto;
+    // overflow: auto;
+    // overflow-y: auto;
     .task-body {
       margin: 10px;
-    ::-webkit-task-section {
-      /*滚动条整体样式*/
-      width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
-      height: 1px;
-    }
-    ::-webkit-task-section-thumb {
-      /*滚动条里面小方块*/
-      border-radius: 10px;
-      -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-      background: #535353;
-    }
-    ::-webkit-task-section-track {
-      /*滚动条里面轨道*/
-      -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      background: #ededed;
-    }
       .tast-title {
         font-size: 14px;
         font-weight: 700;
@@ -263,6 +279,9 @@ export default {
         }
       }
       .task-list {
+        margin-top: 10px;
+        height: 450px;
+        overflow-y: auto;
         .poolList {
           margin-top: 10px;
           .el-card {
@@ -301,6 +320,20 @@ export default {
             }
           }
         }
+      }
+      /*滚动条样式*/
+      .task-list::-webkit-scrollbar {
+        width: 4px;
+      }
+      .task-list::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.2);
+      }
+      .task-list::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+        background: rgba(0, 0, 0, 0.1);
       }
     }
   }
