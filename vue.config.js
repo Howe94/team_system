@@ -32,15 +32,13 @@ module.exports = {
   devServer: {
       proxy: {
           //为了不经网关暂时把端口8888改成8001
-          '/CommonService': {
-              target: 'http://192.168.0.152:8888',
+          '/api': {
+              target: 'http://localhost:8080',
               ws: false,
-              changeOrigin: true
-          },
-          '/TeamSystem': {
-              target: 'http://127.0.0.1:3000',
-              ws: true,
-              changeOrigin: true
+              changeOrigin: true,// 是否启用websockets
+              secure:false, // 使用的是http协议则设置为false，https协议则设置为true
+              //开启代理：在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样客户端端和服务端进行数据的交互就不会有跨域问题
+              changOrigin: true,
           }
       }
   },

@@ -21,7 +21,7 @@ export default {
     methods: {
         _getTeamProInfo() {
             getTeamProInfo({
-                university: "广东金融学院"
+                // university: "广东金融学院"
             }, 'get').then(res => {
                 this.teamList = res.data.slice(0,11)
             })
@@ -40,7 +40,6 @@ export default {
         // 获取学院
         _getUniversity(){
             getUniversity({
-
             },"get").then(res =>{
                 this.universityList = res.data;
             })

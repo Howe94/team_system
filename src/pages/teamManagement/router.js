@@ -85,7 +85,7 @@ function checkQuery(url, param, reg, routerAdd) {
 router.beforeEach((to, from, next) => {
     checkQuery(location.href, '?access_token=', /\?access_token=[\w\-@]{1,}/, to.path);
     // 设置全局标题
-    document.title = to.meta.title || '统一申办'
+    document.title = to.meta.title || '团队管理系统'
     const cookeiToken = location.href.split('access_token=')[1];
     const cookie = getCookie('access-token')
     if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
@@ -96,7 +96,7 @@ router.beforeEach((to, from, next) => {
                 setCookie('access-token', cookeiToken);
                 next();
             } else {
-                window.location.href = `${process.env.BASE_URL}entering.html?rURL=${encodeURIComponent(window.location.href)}`;
+                window.location.href = `${process.env.BASE_URL}chooseTeam.html?rURL=${encodeURIComponent(window.location.href)}`;
             }
 
         }
