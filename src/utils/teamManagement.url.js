@@ -23,7 +23,7 @@ export function changeTeamSeeNum(data, type, callFunc) {
     }
     return fetchData('http://localhost:3000/getTeamProInfo', msg, type)
 }
-//获取学院列表
+//获取学校列表
 
 export function getUniversity(data, type, callFunc) {
     var msg = data

@@ -1,12 +1,12 @@
 import BreadCrumb from '../../../../components/Breadcrumb/breadCrumb.vue'
 import taskModel from './projectModel/taskModel.vue'
-import chatModel from './projectModel/chatModel.vue'
+import fileModel from './projectModel/fileModel.vue'
 import annouceModel from './projectModel/annouceModel.vue'
 import {
     getTaskList
 } from '../../../../utils/teamManagement.url.js' // 引入接口
 export default {
-    components: {BreadCrumb,taskModel,chatModel,annouceModel},
+    components: {BreadCrumb,taskModel,fileModel,annouceModel},
     data() {
         return {
             taskList:[],//项目任务列表

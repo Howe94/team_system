@@ -7,7 +7,7 @@
         <div class="navleft">
           <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="任务" name="first"><taskModel :taskList="taskList"></taskModel></el-tab-pane>
-            <el-tab-pane label="文件" name="second"><chatModel></chatModel></el-tab-pane>
+            <el-tab-pane label="文件" name="second"><fileModel></fileModel></el-tab-pane>
             <el-tab-pane label="发布公告" name="third"><annouceModel></annouceModel></el-tab-pane>
           </el-tabs>
           <div class="teamMemberNotice">
