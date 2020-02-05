@@ -11,9 +11,9 @@ export function interOutnetConfig(data, type, callFunc) {
 export function getTeamProInfo(data, type, callFunc) {
     var msg = data
     if(callFunc && (callFunc.constructor === Function)){
-        return fetchData('/api/team/All', msg, type, callFunc)
+        return fetchData('/api/project/getTeamProList', msg, type, callFunc)
     }
-    return fetchData('/api/team/All', msg, type)
+    return fetchData('/api/project/getTeamProList', msg, type)
 }
 //队伍查看数修改
 export function changeTeamSeeNum(data, type, callFunc) {

@@ -10,18 +10,20 @@ export default {
         return {
             teamList: [],
             formdata:{
-                university:"",//按照学院搜索
+                universityKey:"",//按照学院搜索
                 proType:"",//按照类型搜索
                 searchKey:""//搜索关键字
             },
-            universityList:[],//学院列表
+            universityList:[
+
+            ],//学院列表
             proTypeList:[]//类型列表
         }
     },
     methods: {
         _getTeamProInfo() {
             getTeamProInfo({
-                // university: "广东金融学院"
+                key: this.formdata.universityKey || ''
             }, 'get').then(res => {
                 this.teamList = res.data.slice(0,11)
             })

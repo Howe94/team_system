@@ -6,7 +6,7 @@
           <h3>找团队|找项目</h3>
         </div>
         <div class="tabMenu">
-          <div class="el-menu-demo">
+          <div class="el-menu-demo" v-if="this.isShowSchool == 1">
             <div class="tabMenuItem" :class="inCampus? 'selectItem': ''" @click="handleSelect(1)">校内</div>
             <div
               class="tabMenuItem"
@@ -56,11 +56,12 @@ export default {
   components: { teamDialog },
   data() {
     return {
+      isShowSchool: 0,//是否显示校内外选项 0-不显示，1-显示
       activeIndex: "1",
       username: "曹荣武",
       centerDialogVisible: false, //新建团队弹框
       titleTip: "新建团队项目",
-      subTip:"完成并创建",
+      subTip: "完成并创建",
       inCampus: true,
       outCampus: false
     };
@@ -101,11 +102,22 @@ export default {
     closeDialog(value) {
       this.centerDialogVisible = value;
     },
-    addTeam(teamInfo){
-      console.log(teamInfo)
+    addTeam(teamInfo) {
+      console.log(teamInfo);
     }
   },
-  created() {}
+  created() {
+    console.log(window.location.hash);
+  },
+  watch: {
+    "$route.path": function(newVal, oldVal) {
+      if (newVal === "/chooseTeam") {
+        this.isShowSchool = 1;
+      }else{
+        this.isShowSchool = 0;
+      }
+    }
+  }
 };
 </script>
 <style lang="scss">

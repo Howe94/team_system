@@ -1,25 +1,25 @@
 <template>
   <div class="container">
     <div class="proInfoBox">
-      <h3>{{teamInfo.pro_name}}</h3>
+      <h3>{{teamInfo.proName}}</h3>
       <div class="proInfo">
-        <p>{{teamInfo.university}} | {{teamInfo.pro_type}} | {{teamInfo.pro_num}} | {{teamInfo.pro_start_date}} - {{teamInfo.pro_end_date}}</p>
+        <p>{{teamInfo.university}} | {{teamInfo.proType}} | {{teamInfo.proNum}} | {{teamInfo.proStartTime}} - {{teamInfo.proEndTime}}</p>
         <span>项目描述：</span>
-        <p>{{teamInfo.pro_describe}}</p>
+        <p>{{teamInfo.proDescribe}}</p>
         <span>希望队员：</span>
         <p v-for="(item,index) in teamInfo.staff" :key="index">{{index+1}}、{{item.staffName}}</p>
       </div>
     </div>
     <div class="teamInfoBox">
-      <h3>{{teamInfo.team_name}}</h3>
+      <h3>{{teamInfo.teamName}}</h3>
       <div class="teamInfo">
         <span>队长:</span>
-        <p>{{teamInfo.leader_name}}</p>
+        <p>{{teamInfo.leaderName}}</p>
         <span>团队描述：</span>
-        <p>{{teamInfo.team_describe}}</p>
+        <p>{{teamInfo.teamDescribe}}</p>
       </div>
     </div>
-    <div class="subMit"><el-button type="primary" plain :disabled="teamInfo.pro_current_num == teamInfo.pro_limited_num">申请加队</el-button></div>
+    <div class="subMit"><el-button type="primary" plain :disabled="teamInfo.proCurrentNum == teamInfo.proLimitedNum">申请加队</el-button></div>
   </div>
 </template>
 

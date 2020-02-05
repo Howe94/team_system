@@ -102,7 +102,7 @@ export default {
     //获取团队列表
     _getMyTeamList() {
       getMyTeamList({
-        userId: this.$store.state.userId || ''
+        id: this.$store.state.userId || '1'
       }, "get").then(res => {
         if (res.status == 200) {
           res.data.map((item, index) => {

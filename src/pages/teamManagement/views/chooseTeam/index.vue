@@ -6,12 +6,12 @@
         <el-row>
           <el-col :span="7" v-if="this.$store.state.isCampus">
             <el-form-item label="按学校查找">
-              <el-select v-model="formdata.university"
+              <el-select v-model="formdata.universityKey"
                          placeholder="请选择查找的学校">
                 <el-option v-for="(item, key) in universityList"
                            :key="key"
                            :label="item.university"
-                           :value="item.id"></el-option>
+                           :value="item.key"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -70,7 +70,7 @@
             </span>
           </el-card>
         </el-col>
-        <el-col v-if="teamList.length > 0">
+        <el-col v-if="teamList.length > 11">
           <span @click="onloadMore">加载更多
             <i class="el-icon-d-arrow-right"></i>
           </span>

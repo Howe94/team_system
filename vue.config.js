@@ -33,7 +33,7 @@ module.exports = {
       proxy: {
           //为了不经网关暂时把端口8888改成8001
           '/api': {
-              target: 'http://localhost:8080',
+              target: 'http://localhost:8888',
               ws: false,
               changeOrigin: true,// 是否启用websockets
               secure:false, // 使用的是http协议则设置为false，https协议则设置为true

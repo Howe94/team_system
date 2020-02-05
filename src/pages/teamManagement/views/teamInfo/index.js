@@ -14,10 +14,10 @@ export default {
     methods: {
         _getTeamProInfo(proId) {
             getTeamProInfo({
-                pro_id: proId
+                proId: proId
             }, 'get').then(res => {
                 this.teamInfo = res.data[0];
-                console.log(this.teamInfo)
+                // console.log(this.teamInfo)
             })
         },
     },

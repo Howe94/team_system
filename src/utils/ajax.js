@@ -13,7 +13,6 @@ const ajaxBaseUrl = ''
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
-    console.log(config)
     return config;
 }, function (error) {
     // 对请求错误做些什么
@@ -56,7 +55,8 @@ export function fetchData(url, data, type, callFunc, filter) {
     // }
 
     if (type === 'get') {
-        config.url = ajaxBaseUrl + url + '?r=' + Math.random() * 1000;
+        // config.url = ajaxBaseUrl + url + '?r=' + Math.random() * 1000;
+        config.url = ajaxBaseUrl + url;
         config.params = data;
     } else {
         config.data = sendData ? qs.stringify(data) : qs.stringify(data);
